@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition --> 
+    <record model="ir.ui.view" id="classroom_list_view">
+      <field name="name">Classroom list</field>
+      <field name="model">universite.classroom</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="classroom_name"/>
+          <field name="code"/>
+          <field name="student_ids"/>
+          <field name="departement_id"/>
+          <field name="professor_ids"/>
+        </tree>
+      </field>
+    </record>
+
+     <!-- explicit form view definition --> 
+    <record model="ir.ui.view" id="classroom_form_view">
+      <field name="name">Classroom form</field>
+      <field name="model">universite.classroom</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+          <field name="classroom_name"/>
+          <field name="code"/>
+          <field name="student_ids"/>
+          <field name="departement_id"/>
+          <field name="professor_ids"/>
+        </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="classroom_action_window">
+      <field name="name">classroom window</field>
+      <field name="res_model">universite.classroom</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+   <!-- Top menu item -->
+    <menuitem name="universite" id="universite.menu_root"/>
+
+
+    
+    <!-- menu categories -->
+    <menuitem name="Salles de classe" id="universite_classroom_cat" parent="universite.menu_root"/>
+    <!-- actions -->
+    <menuitem name="Liste des salles de classe" id="universite_classroom_list" parent="universite_classroom_cat"
+              action="classroom_action_window"/>
+
+  
+ 
+    
+  </data>
+</odoo>

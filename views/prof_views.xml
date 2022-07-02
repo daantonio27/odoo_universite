@@ -1,0 +1,66 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition --> 
+    <record model="ir.ui.view" id="professor_list_view">
+      <field name="name">Professor list</field>
+      <field name="model">universite.professor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="f_name"/>
+          <field name="l_name"/>
+          <field name="sexe"/>
+          <field name="cni"/>
+          <field name="phone"/>
+          <field name="subject_id"/>
+          <field name="departement_id"/>
+          <field name="classroom_ids"/>
+        </tree>
+      </field>
+    </record>
+
+     <!-- explicit form view definition --> 
+    <record model="ir.ui.view" id="professor_form_view">
+      <field name="name">Professor form</field>
+      <field name="model">universite.professor</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+          <field name="f_name"/>
+          <field name="l_name"/>
+          <field name="sexe"/>
+          <field name="cni"/>
+          <field name="phone"/>
+          <field name="address"/>
+          <field name="email"/>
+          <field name="subject_id"/>
+          <field name="departement_id"/>
+          <field name="classroom_ids"/>
+        </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="professor_action_window">
+      <field name="name">professor window</field>
+      <field name="res_model">universite.professor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+   <!-- Top menu item -->
+    <menuitem name="universite" id="universite.menu_root"/>
+
+
+    
+    <!-- menu categories -->
+    <menuitem name="Professeur" id="universite_professor_cat" parent="universite.menu_root"/>
+    <!-- actions -->
+    <menuitem name="Liste des professeurs" id="universite_professor_list" parent="universite_professor_cat"
+              action="professor_action_window"/>
+
+  
+ 
+    
+  </data>
+</odoo>

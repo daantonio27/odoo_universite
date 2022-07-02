@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition --> 
+    <record model="ir.ui.view" id="subject_list_view">
+      <field name="name">Subject list</field>
+      <field name="model">universite.subject</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="code"/>
+          <field name="professor_ids"/>
+          <field name="departement_id"/>
+        </tree>
+      </field>
+    </record>
+
+     <!-- explicit form view definition --> 
+    <record model="ir.ui.view" id="subject_form_view">
+      <field name="name">Subject form</field>
+      <field name="model">universite.subject</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+          <field name="name"/>
+          <field name="code"/>
+          <field name="professor_ids"/>
+          <field name="departement_id"/>
+        </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="subject_action_window">
+      <field name="name">subject window</field>
+      <field name="res_model">universite.subject</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+   <!-- Top menu item -->
+    <menuitem name="universite" id="universite.menu_root"/>
+
+
+    
+    <!-- menu categories -->
+    <menuitem name="Matières" id="universite_subject_cat" parent="universite.menu_root"/>
+    <!-- actions -->
+    <menuitem name="Liste des matières" id="universite_subject_list" parent="universite_subject_cat"
+              action="subject_action_window"/>
+
+  
+ 
+    
+  </data>
+</odoo>
